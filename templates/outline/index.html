@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% extends "outline/base.html" %}
+  {% load static %}
+  {% block body_block %}
+      <div class="jumbotron">
+        <h1>PyR - EnRA</h1>
+      </div>
+
+      <a href="{% url 'outline:form_person' %}">Bitte geben Sie hier einen neuen Autoren an</a>
+      <a href="{% url 'outline:registration' %}">Registration</a>
+      <br>
+
+      <h2>{{ text|upper|cut:'W' }}</h2>
+      <h2>{{ number|cut:'0' }}</h2>
+
+      <h2> Here are your Publication data</h2>
+      <div class="db_out_import">
+        {% if plate %}
+
+        <table >
+          <thead>
+            <th>page</th>
+            <th>figure_number</th>
+          </thead>
+          {% for p in plate %}
+          <tr>
+            <td>{{ p.page }}</td>
+            <td>{{ p.figure_number }}</td>
+
+          </tr>
+          {% endfor %}
+        </table>
+        {% else %}
+          <p>NO plates found!</p>
+        {% endif %}
+      </div>
+
+      <img src = "{% static "/images/pic.jpg " %}" alt = ''>
+  {% endblock %}

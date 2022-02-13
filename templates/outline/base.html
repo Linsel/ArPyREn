@@ -1,0 +1,42 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="{% url 'outline:index' %}">Home</a></li>
+          <li><a class="navbar-link" href="{% url 'outline:registration' %}">Register</a></li>
+
+          {% if user.is_authenticated %}
+            <li><a class="navbar-link" href="{% url 'outline:form_person' %}">Add Author</a></li>
+            <li><a class="navbar-link" href="{% url 'outline:form_publication' %}">Add Publication</a></li>
+            <li><a class="navbar-link" href= "#">Admin</a></li>
+            <li><a class="navbar-link" href="#">Add Plate</a></li>
+            <li><a class="navbar-link" href="#">Calculate Metrics</a></li>
+            <li><a class="navbar-link" href="#">Calculate GMM</a></li>
+            <li><a class="navbar-link" href="#">Create RDA</a></li>
+
+            <li><a class="navbar-link" href="{% url 'outline:logout' %}">Logout</a></li>
+          {% else %}
+            <li><a class="navbar-link" href="{% url 'outline:login' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+    <div class="">
+      {% block body_block %}
+
+      <!-- Anyting outside of this will be inherited if you extend! --!>
+
+      {% endblock %}
+    </div>
+
+
+  </body>
+
+</html>

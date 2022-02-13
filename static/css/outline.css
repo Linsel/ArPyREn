@@ -1,0 +1,10 @@
+h1{
+  color : red;
+}
+h2{
+  color:red;
+}
+table, th, td {
+  color: red;
+  border: 2px solid black;
+}
